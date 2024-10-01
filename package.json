@@ -1,0 +1,20 @@
+{
+  "name": "nuevo-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "concurrently": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd ./servidor && node index.js\" \"cd ./cliente && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
