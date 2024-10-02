@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import BotonNavegar from "../componentes/BotonNavegar";
 
 function IniciarSesion({ usuarioLogeado, setUsuarioLogeado }) {
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ function IniciarSesion({ usuarioLogeado, setUsuarioLogeado }) {
       {usuarioLogeado.logeado ? (
         <>
           <h1>Bienvenido! {usuarioLogeado.usuario.nombre}</h1>
+
+          <BotonNavegar ruta="/usuarios" texto="Ver Usuarios" />
+          <BotonNavegar ruta="/publicaciones" texto="Ver Publicaciones" />
+          <BotonNavegar ruta="/publicaciones/crear" texto="Crear Publicación" />
 
           <button
             style={{
