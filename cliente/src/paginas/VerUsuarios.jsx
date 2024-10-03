@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 function VerUsuarios() {
@@ -21,6 +22,9 @@ function VerUsuarios() {
           <td>{usuario._id}</td>
           <td>{usuario.nombre}</td>
           <td>{usuario.email}</td>
+          <td>
+            <Link to={`/usuarios/${usuario._id}`}>Ver mas</Link>
+          </td>
         </tr>
       );
     });
@@ -34,6 +38,7 @@ function VerUsuarios() {
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>{mostrarFilas()}</tbody>
