@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"cd ./servidor && node index.js\" \"cd ./cliente && npm run dev\""
+    "dev": "concurrently \"cd ./servidor && node index.js\" \"cd ./cliente && npm run dev\"",
+    "instalar": "concurrently \"cd ./servidor && npm install\" \"cd ./cliente && npm install\""
   },
   "keywords": [],
   "author": "",
