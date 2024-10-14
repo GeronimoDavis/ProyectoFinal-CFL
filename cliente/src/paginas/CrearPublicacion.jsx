@@ -19,6 +19,10 @@ function CrearPublicacion({ usuarioLogeado }) {
     if (!usuarioLogeado.logeado) {
       navigate("/");
     }
+    if (!titulo || !texto) {
+      alert("El título y el texto no pueden estar vacíos.");
+      return;
+    }
     console.log(titulo, texto);
     fetch("http://localhost:3000/api/publicaciones", {
       method: "POST",

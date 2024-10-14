@@ -8,6 +8,7 @@ function EditarPublicacion() {
 
   const [titulo, setTitulo] = useState("");
   const [texto, setTexto] = useState("");
+  
 
   const fetchObtenerPublicacion = async () => {
     const respuesta = await fetch(`http://localhost:3000/api/publicaciones/${id}`);
@@ -31,26 +32,35 @@ function EditarPublicacion() {
 
   const enviarFormulario = (e) => {
     e.preventDefault();
-
-    console.log(titulo, texto);
-    fetch(`http://localhost:3000/api/publicaciones/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        titulo: titulo,
-        texto: texto,
-      }),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        navigate("/publicaciones");
-      });
-  };
-
+    if (!titulo || !texto) {
+        alert("El título y el texto no pueden estar vacíos.");
+        return;
+    }else
+    {
+        console.log(titulo, texto);
+        fetch(`http://localhost:3000/api/publicaciones/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            titulo: titulo,
+            texto: texto,
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            navigate("/publicaciones");
+          })
+          .catch((error) => {
+            console.error("Error al actualizar la publicación:", error);
+          });
+      };
+    
+    }
+   
   return( <>
      <form onSubmit={enviarFormulario}>
       <input

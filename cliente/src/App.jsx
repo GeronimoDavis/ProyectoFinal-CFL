@@ -8,6 +8,7 @@ import CrearPublicacion from "./paginas/CrearPublicacion";
 import IniciarSesion from "./paginas/IniciarSesion";
 import VerUsuario from "./paginas/VerUsuario";
 import EditarPublicacion from "./paginas/EditarPublicacion";
+import BotonNavegar from "./componentes/BotonNavegar";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
