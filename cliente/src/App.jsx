@@ -7,6 +7,7 @@ import VerPublicacion from "./paginas/VerPublicacion";
 import CrearPublicacion from "./paginas/CrearPublicacion";
 import IniciarSesion from "./paginas/IniciarSesion";
 import VerUsuario from "./paginas/VerUsuario";
+import EditarPublicacion from "./paginas/EditarPublicacion";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -27,6 +28,8 @@ function App() {
         <Route path="/usuarios" element={<VerUsuarios></VerUsuarios>}></Route>
 
         <Route path="/usuarios/:id" element={<VerUsuario></VerUsuario>}></Route>
+
+        <Route path="/publicaciones/editar/:id" element={<EditarPublicacion />}></Route>
 
         <Route
           path="/publicaciones"

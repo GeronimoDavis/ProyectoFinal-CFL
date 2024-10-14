@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import BotonNavegar from "../componentes/BotonNavegar";
 
 function VerPublicaciones() {
   const [publicaciones, setPublicaciones] = useState([]);
@@ -33,6 +34,8 @@ function VerPublicaciones() {
 
   return (
     <>
+      <BotonNavegar ruta="/publicaciones/crear" texto="Crear Publicación" />
+      <h1>Publicaciones</h1>
       <table>
         <thead>
           <tr>
