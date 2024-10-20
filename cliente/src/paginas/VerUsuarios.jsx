@@ -32,8 +32,8 @@ function VerUsuarios() {
 
   return (
     <>
-      <table>
-        <thead>
+      <table className="table border border-dark table-bordered">
+        <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -41,7 +41,7 @@ function VerUsuarios() {
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>{mostrarFilas()}</tbody>
+        <tbody className="table-group-divider">{mostrarFilas()}</tbody>
       </table>
     </>
   );
