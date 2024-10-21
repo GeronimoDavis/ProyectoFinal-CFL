@@ -22,10 +22,6 @@ function IniciarSesion({ usuarioLogeado, setUsuarioLogeado }) {
         <>
           <h1>Bienvenido! {usuarioLogeado.usuario.nombre}</h1>
 
-          <BotonNavegar ruta="/usuarios" texto="Ver Usuarios" />
-          <BotonNavegar ruta="/publicaciones" texto="Ver Publicaciones" />
-          <BotonNavegar ruta="/publicaciones/crear" texto="Crear Publicación" />
-
           <button
             style={{
               backgroundColor: "red",

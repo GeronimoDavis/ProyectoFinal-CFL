@@ -9,6 +9,7 @@ import IniciarSesion from "./paginas/IniciarSesion";
 import VerUsuario from "./paginas/VerUsuario";
 import EditarPublicacion from "./paginas/EditarPublicacion";
 import BotonNavegar from "./componentes/BotonNavegar";
+import Navbar from "./componentes/Navbar";
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+     <Navbar></Navbar>
       <Routes>
         <Route
           path="/"

@@ -24,7 +24,7 @@ function VerPublicaciones() {
           <td>{publicacion.titulo}</td>
           <td>{publicacion.texto}</td>
           <td>
-            <Link to={`/publicaciones/${publicacion._id}`}>Ver mas</Link>
+            <Link to={`/publicaciones/${publicacion._id}`}>Ver publicacion</Link>
           </td>
         </tr>
       );
@@ -34,14 +34,14 @@ function VerPublicaciones() {
 
   return (
     <>
-      <BotonNavegar ruta="/publicaciones/crear" texto="Crear Publicación" />
       <h1>Publicaciones</h1>
-      <table>
-        <thead>
+      <table className="table border border-dark table-bordered">
+        <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>Titulo</th>
             <th>Texto</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>{mostrarFilas()}</tbody>
