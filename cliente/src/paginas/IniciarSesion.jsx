@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import BotonNavegar from "../componentes/BotonNavegar";
 
 function IniciarSesion({ usuarioLogeado, setUsuarioLogeado }) {
   const navigate = useNavigate();

@@ -3,10 +3,21 @@ import { Route, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EditarPublicacion from "./EditarPublicacion";
 
-function VerPublicacion() {
+function VerPublicacion({ usuarioLogeado }) {
   const [publicacion, setPublicacion] = useState({ usuario: {} });
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const redireccionarUsuario = () => {
+    if (!usuarioLogeado.logeado) {
+      navigate("/");
+      alert("Debes iniciar sesión para ver una publicación");
+    }
+  };
+
+  useEffect(() => {
+    redireccionarUsuario();
+  }, []);
 
   const fetchEliminarPublicacion = () => {
     fetch(`http://localhost:3000/api/publicaciones/${id}`, {
@@ -20,7 +31,7 @@ function VerPublicacion() {
       .catch((error) => {
         navigate("/publicaciones");
         console.log(error);
-        alert(error)
+        alert(error);
       });
   };
 
@@ -55,10 +66,7 @@ function VerPublicacion() {
       </button>
       <br />
       <br />
-      <button
-        style={{ backgroundColor: "green" }}
-        onClick={EditarPublicacion}
-      >
+      <button style={{ backgroundColor: "green" }} onClick={EditarPublicacion}>
         Editar publicacion
       </button>
     </>

@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-     <Navbar></Navbar>
+      <Navbar usuarioLogeado={usuarioLogeado}></Navbar>
       <Routes>
         <Route
           path="/"
@@ -32,7 +32,10 @@ function App() {
 
         <Route path="/usuarios/:id" element={<VerUsuario></VerUsuario>}></Route>
 
-        <Route path="/publicaciones/editar/:id" element={<EditarPublicacion />}></Route>
+        <Route
+          path="/publicaciones/editar/:id"
+          element={<EditarPublicacion />}
+        ></Route>
 
         <Route
           path="/publicaciones"
@@ -48,7 +51,9 @@ function App() {
         ></Route>
         <Route
           path="/publicaciones/:id"
-          element={<VerPublicacion></VerPublicacion>}
+          element={
+            <VerPublicacion usuarioLogeado={usuarioLogeado}></VerPublicacion>
+          }
         ></Route>
       </Routes>
     </>
