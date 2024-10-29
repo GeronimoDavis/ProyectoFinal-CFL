@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BotonNavegar from "../componentes/BotonNavegar";
 
 function VerPublicaciones() {
   const [publicaciones, setPublicaciones] = useState([]);
@@ -16,36 +15,26 @@ function VerPublicaciones() {
     fetchPublicaciones();
   }, []);
 
-  const mostrarFilas = () => {
-    let filas = publicaciones.map((publicacion, index) => {
+  function mostrarCards() {
+    let card = publicaciones.map((publicacion) => {
       return (
-        <tr key={index}>
-          <td>{publicacion._id}</td>
-          <td>{publicacion.titulo}</td>
-          <td>{publicacion.texto}</td>
-          <td>
-            <Link to={`/publicaciones/${publicacion._id}`}>Ver publicacion</Link>
-          </td>
-        </tr>
+        <div className="card" style={{ width: "18rem" }} key={publicacion._id}>
+          <div className="card-body">
+            <h5 className="card-title">{publicacion.titulo}</h5>
+            <p className="card-text">{publicacion.texto}</p>
+            <Link to={`/publicaciones/${publicacion._id}`}>
+              Ver publicacion
+            </Link>
+          </div>
+        </div>
       );
     });
-    return filas;
-  };
-
+    return card;
+  }
   return (
     <>
       <h1>Publicaciones</h1>
-      <table className="table border border-dark table-bordered">
-        <thead className="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>Titulo</th>
-            <th>Texto</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>{mostrarFilas()}</tbody>
-      </table>
+      {mostrarCards()}
     </>
   );
 }
