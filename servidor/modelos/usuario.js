@@ -6,6 +6,7 @@ const usuarioSchema = new mongoose.Schema({
   password: { type: String, require: true },
   googleId: { type: String, unique: true },
   publicaciones: [{ type: mongoose.Schema.Types.ObjectId, ref: "Publicacion" }],
+  comentarios: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comentario" }],
 });
 
 module.exports = mongoose.model("Usuario", usuarioSchema);
