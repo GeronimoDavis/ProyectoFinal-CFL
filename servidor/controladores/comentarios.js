@@ -4,7 +4,6 @@ const Usuario = require("../modelos/usuario");
 
 const verComentarios = async (req, res) => {
   const comentarios = await Comentario.find({});
-  res.json(comentarios);
 };
 
 const crearComentario = async (req, res) => {
@@ -29,10 +28,38 @@ const eliminarComentario = async (req, res) => {
   const comentarioEliminar = await Comentario.findByIdAndDelete(id); // Busca y elimina el comentario con el ID especificado
   const publicacion = await Publicaciones.findById(
     comentarioEliminar.publicacion
-  ); // Busca la publicacion del comentario
+  ); // recupera la id de la publicacion
+
+  publicacion.comentarios = publicacion.comentarios.filter(//funcio filter crea una nueva lista excluyendo el id del comentario
+    (comentarioId) => comentarioId.toString() !== id// deja a todas las publicaciones que no sean el id del comentario
+  ); 
+  await publicacion.save(); 
+
+  const usuario = await Usuario.findById(comentarioizar.usuario); 
+  usuario.comentarios = usuario.comentarios.filter(
+    (comentarioId) => comentarioId.toString() !== id
+  );
+  await usuario.save();
+  
+  res.json({comentarioEliminar, mensaje: "Comentario eliminado!"});
+};
+
+const editarComentarios = async (req, res) => {
+  const { id } = req.params;
+  const {texto} = req.body;
+  const comentarioEditado = await Comentario.findByIdAndUpdate(id,{//busca el comentario por id y lo actualiza con el nuevo texto que se recupero del cuerpo de la peticion
+    texto
+  })
+  comentarioEditado.fechaEdicion = Date.now();
+
+  await comentarioEditado.save();
+  
+  res.json({comentarioEditado, mensaje: "Comentario editado!"});
 };
 
 module.exports = {
   verComentarios,
   crearComentario,
+  eliminarComentario,
+  editarComentarios,
 };
