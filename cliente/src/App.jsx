@@ -18,6 +18,7 @@ function App() {
   return (
     <>
       <Navbar usuarioLogeado={usuarioLogeado}></Navbar>
+
       <Routes>
         <Route
           path="/"

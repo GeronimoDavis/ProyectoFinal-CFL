@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Route, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import EditarPublicacion from "./EditarPublicacion";
+import CrearComentarios from "./CrearComentario";
 
 function VerPublicacion({ usuarioLogeado }) {
   const [publicacion, setPublicacion] = useState({ usuario: {} });
@@ -53,6 +54,8 @@ function VerPublicacion({ usuarioLogeado }) {
 
   return (
     <>
+      <br />
+      <br />
       <h1>Publicacion:</h1>
       <h2>Titulo: {publicacion.titulo}</h2>
       <h2>Texto: {publicacion.texto}</h2>
@@ -69,6 +72,12 @@ function VerPublicacion({ usuarioLogeado }) {
       <button style={{ backgroundColor: "green" }} onClick={EditarPublicacion}>
         Editar publicacion
       </button>
+      <br />
+      <br />
+      <CrearComentarios
+        publicacion={publicacion._id}
+        usuarioLogeado={usuarioLogeado}
+      />
     </>
   );
 }
