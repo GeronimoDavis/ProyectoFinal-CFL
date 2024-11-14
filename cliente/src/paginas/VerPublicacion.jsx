@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import EditarPublicacion from "./EditarPublicacion";
 import CrearComentarios from "./CrearComentario";
 
 function VerPublicacion({ usuarioLogeado }) {
@@ -10,9 +9,9 @@ function VerPublicacion({ usuarioLogeado }) {
   const navigate = useNavigate();
 
   const redireccionarUsuario = () => {
-    if (!usuarioLogeado.logeado) {
-      navigate("/");
+    if (!usuarioLogeado?.logeado) {
       alert("Debes iniciar sesión para ver una publicación");
+      navigate("/");
     }
   };
 
@@ -36,7 +35,7 @@ function VerPublicacion({ usuarioLogeado }) {
       });
   };
 
-  const EditarPublicacion = () => {
+  const EditarLaPublicacion = () => {
     navigate(`/publicaciones/editar/${id}`);
   };
 
@@ -69,13 +68,13 @@ function VerPublicacion({ usuarioLogeado }) {
       </button>
       <br />
       <br />
-      <button style={{ backgroundColor: "green" }} onClick={EditarPublicacion}>
+      <button style={{ backgroundColor: "green" }} onClick={EditarLaPublicacion}>
         Editar publicacion
       </button>
       <br />
       <br />
       <CrearComentarios
-        publicacion={publicacion._id}
+        idPublicacion={publicacion._id}
         usuarioLogeado={usuarioLogeado}
       />
     </>

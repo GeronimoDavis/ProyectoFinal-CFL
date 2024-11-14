@@ -2,18 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function CrearComentarios({ idPublicacion, usuarioLogeado }) {
-  const [comentarios, setComentarios] = useState([]);
+  const [comentarios, setComentarios] = useState("");
+  const navigate = useNavigate();
 
-  function redireccionarUsuario() {
-    if (!usuarioLogeado.logeado) {
-      navigate("/");
-      alert("Debes iniciar sesión para crear una publicación.");
-    }
-  }
-
-  useEffect(() => {
-    redireccionarUsuario();
-  }, []);
 
   const manejarTexto = (e) => {
     setComentarios(e.target.value);
@@ -49,6 +40,14 @@ function CrearComentarios({ idPublicacion, usuarioLogeado }) {
   return (
     <div>
       <h1>Deja un Comentarios</h1>
+      <textarea name="comentarios" style={{ 
+        width: '500px', 
+        height: '200px', 
+        backgroundColor: 'lightgray', 
+        color: 'black' 
+    }} onChange={manejarTexto} ></textarea>
+    <br />
+    <button onClick={enviarComentario}>Enviar Comentario</button>
     </div>
   );
 }
