@@ -30,10 +30,18 @@ function CrearComentarios({ idPublicacion, usuarioLogeado }) {
       }),
     })
       .then((res) => {
+        if (!res.ok) {
+          throw new Error("Error al enviar el comentario");
+        }
         return res.json();
       })
       .then((data) => {
+        alert("Comentario enviado con éxito");
         navigate("/publicaciones");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Hubo un problema al enviar el comentario: " + error.message);
       });
   };
 
