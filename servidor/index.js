@@ -95,6 +95,9 @@ app.use("/api/usuarios", rutasUsuarios);
 const rutasPublicaciones = require("./rutas/publicaciones");
 app.use("/api/publicaciones", rutasPublicaciones);
 
+const rutasComentarios = require("./rutas/comentarios");
+app.use("/api/comentarios", rutasComentarios);
+
 //rutas
 
 app.listen(3000, function () {

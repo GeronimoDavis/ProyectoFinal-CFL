@@ -5,7 +5,6 @@ function CrearComentarios({ idPublicacion, usuarioLogeado }) {
   const [comentarios, setComentarios] = useState("");
   const navigate = useNavigate();
 
-
   const manejarTexto = (e) => {
     setComentarios(e.target.value);
   };
@@ -24,7 +23,7 @@ function CrearComentarios({ idPublicacion, usuarioLogeado }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        comentarios: comentarios,
+        texto: comentarios,
         publicacion: idPublicacion,
         usuario: usuarioLogeado.usuario._id,
       }),
@@ -48,14 +47,18 @@ function CrearComentarios({ idPublicacion, usuarioLogeado }) {
   return (
     <div>
       <h1>Deja un Comentarios</h1>
-      <textarea name="comentarios" style={{ 
-        width: '500px', 
-        height: '200px', 
-        backgroundColor: 'lightgray', 
-        color: 'black' 
-    }} onChange={manejarTexto} ></textarea>
-    <br />
-    <button onClick={enviarComentario}>Enviar Comentario</button>
+      <textarea
+        name="comentarios"
+        style={{
+          width: "500px",
+          height: "100px",
+          backgroundColor: "lightgray",
+          color: "black",
+        }}
+        onChange={manejarTexto}
+      ></textarea>
+      <br />
+      <button onClick={enviarComentario}>Enviar Comentario</button>
     </div>
   );
 }

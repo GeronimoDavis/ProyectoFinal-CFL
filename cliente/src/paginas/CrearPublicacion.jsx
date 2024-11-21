@@ -51,6 +51,9 @@ function CrearPublicacion({ usuarioLogeado }) {
       })
       .then((data) => {
         navigate("/publicaciones");
+      })
+      .catch((error) => {
+        console.error("Error al crear la publicación:", error);
       });
   };
 
