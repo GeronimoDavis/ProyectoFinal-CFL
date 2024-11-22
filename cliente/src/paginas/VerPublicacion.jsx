@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Route, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CrearComentarios from "./CrearComentario";
-import verComentarios from "./VerComentarios";
+import VerComentarios from "./VerComentarios";
 
 function VerPublicacion({ usuarioLogeado }) {
   const [publicacion, setPublicacion] = useState({ usuario: {} });
@@ -83,7 +83,7 @@ function VerPublicacion({ usuarioLogeado }) {
       />
       <br />
       <br />
-      <verComentarios
+      <VerComentarios
         idPublicacion={publicacion._id}
         usuarioLogeado={usuarioLogeado}
       />

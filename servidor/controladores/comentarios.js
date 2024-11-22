@@ -2,10 +2,6 @@ const Comentario = require("../modelos/comentario");
 const Publicaciones = require("../modelos/publicacion");
 const Usuario = require("../modelos/usuario");
 
-const verComentarios = async (req, res) => {
-  const comentarios = await Comentario.find({});
-};
-
 const crearComentario = async (req, res) => {
   const { usuario, publicacion, texto } = req.body; // toma los valores del cuerpo de la peticion
   const nuevoComentario = new Comentario({ usuario, publicacion, texto }); //Crear un nuevo comentario usando usando los datos de la peticion
