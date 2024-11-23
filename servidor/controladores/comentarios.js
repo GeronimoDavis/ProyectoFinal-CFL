@@ -56,7 +56,6 @@ const editarComentarios = async (req, res) => {
 };
 
 module.exports = {
-  verComentarios,
   crearComentario,
   eliminarComentario,
   editarComentarios,

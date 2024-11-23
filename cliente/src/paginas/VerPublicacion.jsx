@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Route, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CrearComentarios from "./CrearComentario";
-import VerComentarios from "./VerComentarios";
+import MostrarComentarios from "./MostrarComentarios";
 
 function VerPublicacion({ usuarioLogeado }) {
   const [publicacion, setPublicacion] = useState({ usuario: {} });
@@ -83,10 +83,7 @@ function VerPublicacion({ usuarioLogeado }) {
       />
       <br />
       <br />
-      <VerComentarios
-        idPublicacion={publicacion._id}
-        usuarioLogeado={usuarioLogeado}
-      />
+      <MostrarComentarios comentarios={publicacion.comentarios} />
     </>
   );
 }

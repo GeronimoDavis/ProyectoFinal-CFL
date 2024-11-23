@@ -26,7 +26,14 @@ const verPublicaciones = async (req, res) => {
 
 const verPublicacion = async (req, res) => {
   const { id } = req.params;
-  const publicacion = await Publicacion.findById(id).populate("usuario");
+  const publicacion = await Publicacion.findById(id)
+    .populate("usuario")
+    .populate({
+      path: "comentarios",
+      populate: {
+        path: "usuario",
+      },
+    });
   res.json(publicacion);
 };
 
